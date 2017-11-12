@@ -1,0 +1,2766 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/11/2017 11:35:12 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-6GHNLAE"
+  DTS:CreatorName="DESKTOP-6GHNLAE\d-vol"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{06C0A1CD-4B10-4C72-9660-970DB922846A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.1000.169"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="creates"
+  DTS:VersionGUID="{B2332756-6464-415C-826B-8D3F9EAA372D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{388FC640-28F0-4FBD-B7DA-CFA904176A34}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-6GHNLAE;Initial Catalog=ElvisDB;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionExcel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{E2850824-2B97-4541-B8A4-BF96F0FC9E7D}"
+      DTS:ObjectName="SourceConnectionExcel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\d-vol\source\repos\Elvis\data\Wahldaten_überarbeitet_V5.xlsm;Extended Properties=&quot;EXCEL 12.0 MACRO;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{96F10D68-EF81-43B1-B781-935E8660F6D4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Data Conversion 3 - 0"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 3 - 0"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Data Conversion 3 - 0.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 3 - 0.Inputs[Data Conversion Input].Columns[Valid To]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Valid To"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[Valid To]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Data Conversion 3 - 0.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task 1\Data Conversion 3 - 0.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 3 - 0.Outputs[Data Conversion Output].Columns[Valid To]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 3 - 0.Outputs[Data Conversion Output].Columns[Valid To]"
+                      name="Valid To"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[Valid To]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Data Conversion 3 - 0.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Data Conversion 3 - 0.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 3 - 0.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 3 - 0.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion 3 - 0.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 3 - 0.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Destination - Districts"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - Districts"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Districts]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - Districts.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - Districts.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Districts.Inputs[Destination Input].Columns[Politischer Bezirk]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Politischer Bezirk"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Districts.Inputs[Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].Columns[Politischer Bezirk]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Districts.Inputs[Destination Input].Columns[PBZ]"
+                      cachedDataType="r8"
+                      cachedName="PBZ"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Districts.Inputs[Destination Input].ExternalColumns[Code]"
+                      lineageId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].Columns[PBZ]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Districts.Inputs[Destination Input].Columns[RWK]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RWK"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Districts.Inputs[Destination Input].ExternalColumns[Regional_Constituency]"
+                      lineageId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].Columns[RWK]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Districts.Inputs[Destination Input].Columns[Valid From]"
+                      cachedDataType="date"
+                      cachedName="Valid From"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Districts.Inputs[Destination Input].ExternalColumns[Valid From]"
+                      lineageId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].Columns[Valid From]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Districts.Inputs[Destination Input].Columns[Valid To]"
+                      cachedDataType="date"
+                      cachedName="Valid To"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Districts.Inputs[Destination Input].ExternalColumns[Valid To]"
+                      lineageId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].Columns[Valid To]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Districts.Inputs[Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="5"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Districts.Inputs[Destination Input].ExternalColumns[Code]"
+                      dataType="r8"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Districts.Inputs[Destination Input].ExternalColumns[Regional_Constituency]"
+                      dataType="wstr"
+                      length="2"
+                      name="Regional_Constituency" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Districts.Inputs[Destination Input].ExternalColumns[Valid From]"
+                      dataType="date"
+                      name="Valid From" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Districts.Inputs[Destination Input].ExternalColumns[Valid To]"
+                      dataType="date"
+                      name="Valid To" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - Districts.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - Districts.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - Districts.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - Districts.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - Districts.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - Districts.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Destination 1 - Provinces"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination 1 - Provinces"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Provinces]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination 1 - Provinces.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination 1 - Provinces.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination 1 - Provinces.Inputs[Destination Input].Columns[BKZ]"
+                      cachedDataType="r8"
+                      cachedName="BKZ"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination 1 - Provinces.Inputs[Destination Input].ExternalColumns[Code]"
+                      lineageId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Output].Columns[BKZ]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination 1 - Provinces.Inputs[Destination Input].Columns[Bundesland]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Bundesland"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination 1 - Provinces.Inputs[Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Output].Columns[Bundesland]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination 1 - Provinces.Inputs[Destination Input].ExternalColumns[Code]"
+                      dataType="r8"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination 1 - Provinces.Inputs[Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination 1 - Provinces.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination 1 - Provinces.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination 1 - Provinces.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination 1 - Provinces.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination 1 - Provinces.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination 1 - Provinces.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Destination 2 - Election_Parties"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination 2 - Election_Parties"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Election_Parties]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination 2 - Election_Parties.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination 2 - Election_Parties.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination 2 - Election_Parties.Inputs[Destination Input].Columns[Election]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Election"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination 2 - Election_Parties.Inputs[Destination Input].ExternalColumns[Election_Code]"
+                      lineageId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Output].Columns[Election]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination 2 - Election_Parties.Inputs[Destination Input].Columns[Party]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Party"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination 2 - Election_Parties.Inputs[Destination Input].ExternalColumns[Party_Code]"
+                      lineageId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Output].Columns[Party]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination 2 - Election_Parties.Inputs[Destination Input].ExternalColumns[Election_Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Election_Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination 2 - Election_Parties.Inputs[Destination Input].ExternalColumns[Party_Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Party_Code" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination 2 - Election_Parties.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination 2 - Election_Parties.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination 2 - Election_Parties.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination 2 - Election_Parties.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination 2 - Election_Parties.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination 2 - Election_Parties.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Destination 3 - Communities"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination 3 - Communities"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Communities]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination 3 - Communities.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination 3 - Communities.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination 3 - Communities.Inputs[Destination Input].Columns[Gemeindename]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Gemeindename"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination 3 - Communities.Inputs[Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[Gemeindename]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination 3 - Communities.Inputs[Destination Input].Columns[PLZ des Gem#Amtes]"
+                      cachedDataType="r8"
+                      cachedName="PLZ des Gem#Amtes"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination 3 - Communities.Inputs[Destination Input].ExternalColumns[Post_Code]"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[PLZ des Gem#Amtes]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination 3 - Communities.Inputs[Destination Input].Columns[Bezirk]"
+                      cachedDataType="r8"
+                      cachedName="Bezirk"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination 3 - Communities.Inputs[Destination Input].ExternalColumns[District_Code]"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[Bezirk]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination 3 - Communities.Inputs[Destination Input].Columns[Valid From]"
+                      cachedDataType="date"
+                      cachedName="Valid From"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination 3 - Communities.Inputs[Destination Input].ExternalColumns[Valid From]"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[Valid From]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination 3 - Communities.Inputs[Destination Input].Columns[Valid To]"
+                      cachedDataType="dbDate"
+                      cachedName="Valid To"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination 3 - Communities.Inputs[Destination Input].ExternalColumns[Valid To]"
+                      lineageId="Package\Data Flow Task 1\Data Conversion 3 - 0.Outputs[Data Conversion Output].Columns[Valid To]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination 3 - Communities.Inputs[Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination 3 - Communities.Inputs[Destination Input].ExternalColumns[Post_Code]"
+                      dataType="r8"
+                      name="Post_Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination 3 - Communities.Inputs[Destination Input].ExternalColumns[District_Code]"
+                      dataType="r8"
+                      name="District_Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination 3 - Communities.Inputs[Destination Input].ExternalColumns[Valid From]"
+                      dataType="date"
+                      name="Valid From" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination 3 - Communities.Inputs[Destination Input].ExternalColumns[Valid To]"
+                      dataType="dbDate"
+                      name="Valid To" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination 3 - Communities.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination 3 - Communities.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination 3 - Communities.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination 3 - Communities.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination 3 - Communities.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination 3 - Communities.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Destination 4 - Vote_Data"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination 4 - Vote_Data"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Vote_Data]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Inputs[Destination Input].Columns[Election Code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Election Code"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Inputs[Destination Input].ExternalColumns[Election_Code]"
+                      lineageId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].Columns[Election Code]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Inputs[Destination Input].Columns[Community Index]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Community Index"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Inputs[Destination Input].ExternalColumns[Community_Index]"
+                      lineageId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].Columns[Community Index]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Inputs[Destination Input].Columns[Party Code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Party Code"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Inputs[Destination Input].ExternalColumns[Party_Code]"
+                      lineageId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].Columns[Party Code]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Inputs[Destination Input].Columns[Votes]"
+                      cachedDataType="r8"
+                      cachedName="Votes"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Inputs[Destination Input].ExternalColumns[Votes]"
+                      lineageId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].Columns[Votes]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Inputs[Destination Input].ExternalColumns[Election_Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Election_Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Inputs[Destination Input].ExternalColumns[Community_Index]"
+                      dataType="wstr"
+                      length="6"
+                      name="Community_Index" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Inputs[Destination Input].ExternalColumns[Party_Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Party_Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Inputs[Destination Input].ExternalColumns[Votes]"
+                      dataType="r8"
+                      name="Votes" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - Bezirke_neu$"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Source - Bezirke_neu$"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Bezirke_neu$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionExcel]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionExcel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].Columns[Politischer Bezirk]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].ExternalColumns[Politischer Bezirk]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].Columns[Politischer Bezirk]"
+                      name="Politischer Bezirk"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].Columns[PBZ]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].ExternalColumns[PBZ]"
+                      lineageId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].Columns[PBZ]"
+                      name="PBZ"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].Columns[RWK]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].ExternalColumns[RWK]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].Columns[RWK]"
+                      name="RWK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].Columns[Valid From]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].ExternalColumns[Valid From]"
+                      lineageId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].Columns[Valid From]"
+                      name="Valid From"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].Columns[Valid To]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].ExternalColumns[Valid To]"
+                      lineageId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].Columns[Valid To]"
+                      name="Valid To"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].ExternalColumns[Politischer Bezirk]"
+                      dataType="wstr"
+                      length="255"
+                      name="Politischer Bezirk" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].ExternalColumns[PBZ]"
+                      dataType="r8"
+                      name="PBZ" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].ExternalColumns[RWK]"
+                      dataType="wstr"
+                      length="255"
+                      name="RWK" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].ExternalColumns[Valid From]"
+                      dataType="date"
+                      name="Valid From" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output].ExternalColumns[Valid To]"
+                      dataType="date"
+                      name="Valid To" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Error Output].Columns[Politischer Bezirk]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Error Output].Columns[Politischer Bezirk]"
+                      name="Politischer Bezirk" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Error Output].Columns[PBZ]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Error Output].Columns[PBZ]"
+                      name="PBZ" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Error Output].Columns[RWK]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Error Output].Columns[RWK]"
+                      name="RWK" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Error Output].Columns[Valid From]"
+                      dataType="date"
+                      lineageId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Error Output].Columns[Valid From]"
+                      name="Valid From" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Error Output].Columns[Valid To]"
+                      dataType="date"
+                      lineageId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Error Output].Columns[Valid To]"
+                      name="Valid To" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source 1 - Bundsländer$"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Source 1 - Bundsländer$"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Bundsländer$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionExcel]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionExcel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Output].Columns[BKZ]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Output].ExternalColumns[BKZ]"
+                      lineageId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Output].Columns[BKZ]"
+                      name="BKZ"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Output].Columns[Bundesland]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Output].ExternalColumns[Bundesland]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Output].Columns[Bundesland]"
+                      name="Bundesland"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Output].ExternalColumns[BKZ]"
+                      dataType="r8"
+                      name="BKZ" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Output].ExternalColumns[Bundesland]"
+                      dataType="wstr"
+                      length="255"
+                      name="Bundesland" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Error Output].Columns[BKZ]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Error Output].Columns[BKZ]"
+                      name="BKZ" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Error Output].Columns[Bundesland]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Error Output].Columns[Bundesland]"
+                      name="Bundesland" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source 2 - Elect_Party$"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Source 2 - Elect_Party$"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Elect_Party$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionExcel]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionExcel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Output].Columns[Election]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Output].ExternalColumns[Election]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Output].Columns[Election]"
+                      name="Election"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Output].Columns[Party]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Output].ExternalColumns[Party]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Output].Columns[Party]"
+                      name="Party"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Output].ExternalColumns[Election]"
+                      dataType="wstr"
+                      length="255"
+                      name="Election" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Output].ExternalColumns[Party]"
+                      dataType="wstr"
+                      length="255"
+                      name="Party" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Error Output].Columns[Election]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Error Output].Columns[Election]"
+                      name="Election" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Error Output].Columns[Party]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Error Output].Columns[Party]"
+                      name="Party" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Source 3 - Gemeinden_neu$"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Gemeinden_neu$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionExcel]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionExcel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[GKZ (Gemeinde-kennziffer)]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].ExternalColumns[GKZ (Gemeinde-kennziffer)]"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[GKZ (Gemeinde-kennziffer)]"
+                      name="GKZ (Gemeinde-kennziffer)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[GCD_(Gemeinde-code)]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].ExternalColumns[GCD_(Gemeinde-code)]"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[GCD_(Gemeinde-code)]"
+                      name="GCD_(Gemeinde-code)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[Gemeindename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].ExternalColumns[Gemeindename]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[Gemeindename]"
+                      name="Gemeindename"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[PLZ des Gem#Amtes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].ExternalColumns[PLZ des Gem#Amtes]"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[PLZ des Gem#Amtes]"
+                      name="PLZ des Gem#Amtes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[Bezirk]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].ExternalColumns[Bezirk]"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[Bezirk]"
+                      name="Bezirk"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[Valid From]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].ExternalColumns[Valid From]"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[Valid From]"
+                      name="Valid From"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[Valid To]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].ExternalColumns[Valid To]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[Valid To]"
+                      name="Valid To"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[Voting Register]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].ExternalColumns[Voting Register]"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].Columns[Voting Register]"
+                      name="Voting Register"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].ExternalColumns[GKZ (Gemeinde-kennziffer)]"
+                      dataType="r8"
+                      name="GKZ (Gemeinde-kennziffer)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].ExternalColumns[GCD_(Gemeinde-code)]"
+                      dataType="r8"
+                      name="GCD_(Gemeinde-code)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].ExternalColumns[Gemeindename]"
+                      dataType="wstr"
+                      length="255"
+                      name="Gemeindename" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].ExternalColumns[PLZ des Gem#Amtes]"
+                      dataType="r8"
+                      name="PLZ des Gem#Amtes" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].ExternalColumns[Bezirk]"
+                      dataType="r8"
+                      name="Bezirk" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].ExternalColumns[Valid From]"
+                      dataType="date"
+                      name="Valid From" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].ExternalColumns[Valid To]"
+                      dataType="wstr"
+                      length="255"
+                      name="Valid To" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output].ExternalColumns[Voting Register]"
+                      dataType="bool"
+                      name="Voting Register" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[GKZ (Gemeinde-kennziffer)]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[GKZ (Gemeinde-kennziffer)]"
+                      name="GKZ (Gemeinde-kennziffer)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[GCD_(Gemeinde-code)]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[GCD_(Gemeinde-code)]"
+                      name="GCD_(Gemeinde-code)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[Gemeindename]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[Gemeindename]"
+                      name="Gemeindename" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[PLZ des Gem#Amtes]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[PLZ des Gem#Amtes]"
+                      name="PLZ des Gem#Amtes" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[Bezirk]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[Bezirk]"
+                      name="Bezirk" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[Valid From]"
+                      dataType="date"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[Valid From]"
+                      name="Valid From" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[Valid To]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[Valid To]"
+                      name="Valid To" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[Voting Register]"
+                      dataType="bool"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[Voting Register]"
+                      name="Voting Register" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Source 4 - NRW2013_neu$"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">NRW2013_neu$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionExcel]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionExcel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].Columns[Election Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].ExternalColumns[Election Code]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].Columns[Election Code]"
+                      name="Election Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].Columns[Community Index]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].ExternalColumns[Community Index]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].Columns[Community Index]"
+                      name="Community Index"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].Columns[Party Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].ExternalColumns[Party Code]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].Columns[Party Code]"
+                      name="Party Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].Columns[Votes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].ExternalColumns[Votes]"
+                      lineageId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].Columns[Votes]"
+                      name="Votes"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].ExternalColumns[Election Code]"
+                      dataType="wstr"
+                      length="255"
+                      name="Election Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].ExternalColumns[Community Index]"
+                      dataType="wstr"
+                      length="255"
+                      name="Community Index" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].ExternalColumns[Party Code]"
+                      dataType="wstr"
+                      length="255"
+                      name="Party Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output].ExternalColumns[Votes]"
+                      dataType="r8"
+                      name="Votes" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Error Output].Columns[Election Code]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Error Output].Columns[Election Code]"
+                      name="Election Code" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Error Output].Columns[Community Index]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Error Output].Columns[Community Index]"
+                      name="Community Index" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Error Output].Columns[Party Code]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Error Output].Columns[Party Code]"
+                      name="Party Code" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Error Output].Columns[Votes]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Error Output].Columns[Votes]"
+                      name="Votes" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task 1\Destination 3 - Communities.Inputs[Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task 1\Data Conversion 3 - 0.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task 1.Paths[Excel Source Output]"
+              endId="Package\Data Flow Task 1\Destination - Districts.Inputs[Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task 1\Source - Bezirke_neu$.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Data Flow Task 1.Paths[Excel Source Output1]"
+              endId="Package\Data Flow Task 1\Destination 1 - Provinces.Inputs[Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task 1\Source 1 - Bundsländer$.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Data Flow Task 1.Paths[Excel Source Output2]"
+              endId="Package\Data Flow Task 1\Destination 2 - Election_Parties.Inputs[Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task 1\Source 2 - Elect_Party$.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Data Flow Task 1.Paths[Excel Source Output3]"
+              endId="Package\Data Flow Task 1\Data Conversion 3 - 0.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task 1\Source 3 - Gemeinden_neu$.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Data Flow Task 1.Paths[Excel Source Output4]"
+              endId="Package\Data Flow Task 1\Destination 4 - Vote_Data.Inputs[Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task 1\Source 4 - NRW2013_neu$.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 2"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{3EB049C2-1CBD-45E0-B2A4-774C3A0820AB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 2"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 2\Destination 5 - Parties"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination 5 - Parties"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Parties]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 2\Destination 5 - Parties.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 2\Destination 5 - Parties.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 2\Destination 5 - Parties.Inputs[Destination Input].Columns[Code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Code"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Destination 5 - Parties.Inputs[Destination Input].ExternalColumns[Code]"
+                      lineageId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].Columns[Code]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 2\Destination 5 - Parties.Inputs[Destination Input].Columns[Full Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Full Name"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Destination 5 - Parties.Inputs[Destination Input].ExternalColumns[Full Name]"
+                      lineageId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].Columns[Full Name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 2\Destination 5 - Parties.Inputs[Destination Input].Columns[Color]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Color"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Destination 5 - Parties.Inputs[Destination Input].ExternalColumns[Color]"
+                      lineageId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].Columns[Color]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 2\Destination 5 - Parties.Inputs[Destination Input].Columns[Valid From]"
+                      cachedDataType="date"
+                      cachedName="Valid From"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Destination 5 - Parties.Inputs[Destination Input].ExternalColumns[Valid From]"
+                      lineageId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].Columns[Valid From]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 2\Destination 5 - Parties.Inputs[Destination Input].Columns[Valid To]"
+                      cachedDataType="date"
+                      cachedName="Valid To"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Destination 5 - Parties.Inputs[Destination Input].ExternalColumns[Valid To]"
+                      lineageId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].Columns[Valid To]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Destination 5 - Parties.Inputs[Destination Input].ExternalColumns[Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Destination 5 - Parties.Inputs[Destination Input].ExternalColumns[Full Name]"
+                      dataType="wstr"
+                      length="150"
+                      name="Full Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Destination 5 - Parties.Inputs[Destination Input].ExternalColumns[Color]"
+                      dataType="wstr"
+                      length="6"
+                      name="Color" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Destination 5 - Parties.Inputs[Destination Input].ExternalColumns[Valid From]"
+                      dataType="date"
+                      name="Valid From" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Destination 5 - Parties.Inputs[Destination Input].ExternalColumns[Valid To]"
+                      dataType="date"
+                      name="Valid To" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 2\Destination 5 - Parties.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 2\Destination 5 - Parties.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Destination 5 - Parties.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2\Destination 5 - Parties.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Destination 5 - Parties.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2\Destination 5 - Parties.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 2\Destination 6 - Constituencies"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination 6 - Constituencies"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Constituencies]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 2\Destination 6 - Constituencies.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 2\Destination 6 - Constituencies.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 2\Destination 6 - Constituencies.Inputs[Destination Input].Columns[RWK]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RWK"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Destination 6 - Constituencies.Inputs[Destination Input].ExternalColumns[RWK]"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].Columns[RWK]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 2\Destination 6 - Constituencies.Inputs[Destination Input].Columns[Regionalwahlkreis]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Regionalwahlkreis"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Destination 6 - Constituencies.Inputs[Destination Input].ExternalColumns[Regionalwahlkreis]"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].Columns[Regionalwahlkreis]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 2\Destination 6 - Constituencies.Inputs[Destination Input].Columns[BKZ]"
+                      cachedDataType="r8"
+                      cachedName="BKZ"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Destination 6 - Constituencies.Inputs[Destination Input].ExternalColumns[Province_Code]"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].Columns[BKZ]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 2\Destination 6 - Constituencies.Inputs[Destination Input].Columns[Valid From]"
+                      cachedDataType="date"
+                      cachedName="Valid From"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Destination 6 - Constituencies.Inputs[Destination Input].ExternalColumns[Valid From]"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].Columns[Valid From]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 2\Destination 6 - Constituencies.Inputs[Destination Input].Columns[Valid To]"
+                      cachedDataType="date"
+                      cachedName="Valid To"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Destination 6 - Constituencies.Inputs[Destination Input].ExternalColumns[Valid To]"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].Columns[Valid To]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Destination 6 - Constituencies.Inputs[Destination Input].ExternalColumns[RWK]"
+                      dataType="wstr"
+                      length="2"
+                      name="RWK" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Destination 6 - Constituencies.Inputs[Destination Input].ExternalColumns[Regionalwahlkreis]"
+                      dataType="wstr"
+                      length="50"
+                      name="Regionalwahlkreis" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Destination 6 - Constituencies.Inputs[Destination Input].ExternalColumns[Province_Code]"
+                      dataType="r8"
+                      name="Province_Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Destination 6 - Constituencies.Inputs[Destination Input].ExternalColumns[Valid From]"
+                      dataType="date"
+                      name="Valid From" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Destination 6 - Constituencies.Inputs[Destination Input].ExternalColumns[Valid To]"
+                      dataType="date"
+                      name="Valid To" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 2\Destination 6 - Constituencies.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 2\Destination 6 - Constituencies.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Destination 6 - Constituencies.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2\Destination 6 - Constituencies.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Destination 6 - Constituencies.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2\Destination 6 - Constituencies.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 2\Destination 7 - Elections"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination 7 - Elections"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Elections]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 2\Destination 7 - Elections.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 2\Destination 7 - Elections.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 2\Destination 7 - Elections.Inputs[Destination Input].Columns[Code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Code"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Destination 7 - Elections.Inputs[Destination Input].ExternalColumns[Code]"
+                      lineageId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Output].Columns[Code]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 2\Destination 7 - Elections.Inputs[Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Destination 7 - Elections.Inputs[Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 2\Destination 7 - Elections.Inputs[Destination Input].Columns[Due Date]"
+                      cachedDataType="date"
+                      cachedName="Due Date"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Destination 7 - Elections.Inputs[Destination Input].ExternalColumns[Due Date]"
+                      lineageId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Output].Columns[Due Date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Destination 7 - Elections.Inputs[Destination Input].ExternalColumns[Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Destination 7 - Elections.Inputs[Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="80"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Destination 7 - Elections.Inputs[Destination Input].ExternalColumns[Due Date]"
+                      dataType="date"
+                      name="Due Date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 2\Destination 7 - Elections.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 2\Destination 7 - Elections.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Destination 7 - Elections.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2\Destination 7 - Elections.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Destination 7 - Elections.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2\Destination 7 - Elections.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 2\Source 5 - Parteien$"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Source 5 - Parteien$"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Parteien$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 2\Source 5 - Parteien$.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionExcel]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionExcel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].Columns[Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].ExternalColumns[Code]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].Columns[Code]"
+                      name="Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].Columns[Full Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].ExternalColumns[Full Name]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].Columns[Full Name]"
+                      name="Full Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].Columns[Color]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].ExternalColumns[Color]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].Columns[Color]"
+                      name="Color"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].Columns[Valid From]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].ExternalColumns[Valid From]"
+                      lineageId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].Columns[Valid From]"
+                      name="Valid From"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].Columns[Valid To]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].ExternalColumns[Valid To]"
+                      lineageId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].Columns[Valid To]"
+                      name="Valid To"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].ExternalColumns[Code]"
+                      dataType="wstr"
+                      length="255"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].ExternalColumns[Full Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Full Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].ExternalColumns[Color]"
+                      dataType="wstr"
+                      length="255"
+                      name="Color" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].ExternalColumns[Valid From]"
+                      dataType="date"
+                      name="Valid From" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output].ExternalColumns[Valid To]"
+                      dataType="date"
+                      name="Valid To" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Error Output].Columns[Code]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Error Output].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Error Output].Columns[Full Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Error Output].Columns[Full Name]"
+                      name="Full Name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Error Output].Columns[Color]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Error Output].Columns[Color]"
+                      name="Color" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Error Output].Columns[Valid From]"
+                      dataType="date"
+                      lineageId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Error Output].Columns[Valid From]"
+                      name="Valid From" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Error Output].Columns[Valid To]"
+                      dataType="date"
+                      lineageId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Error Output].Columns[Valid To]"
+                      name="Valid To" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 2\Source 6 - RWK_neu$"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Source 6 - RWK_neu$"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">RWK_neu$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionExcel]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionExcel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].Columns[RWK]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].ExternalColumns[RWK]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].Columns[RWK]"
+                      name="RWK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].Columns[Regionalwahlkreis]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].ExternalColumns[Regionalwahlkreis]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].Columns[Regionalwahlkreis]"
+                      name="Regionalwahlkreis"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].Columns[BKZ]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].ExternalColumns[BKZ]"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].Columns[BKZ]"
+                      name="BKZ"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].Columns[Bundesland]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].ExternalColumns[Bundesland]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].Columns[Bundesland]"
+                      name="Bundesland"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].Columns[Valid From]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].ExternalColumns[Valid From]"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].Columns[Valid From]"
+                      name="Valid From"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].Columns[Valid To]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].ExternalColumns[Valid To]"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].Columns[Valid To]"
+                      name="Valid To"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].ExternalColumns[RWK]"
+                      dataType="wstr"
+                      length="255"
+                      name="RWK" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].ExternalColumns[Regionalwahlkreis]"
+                      dataType="wstr"
+                      length="255"
+                      name="Regionalwahlkreis" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].ExternalColumns[BKZ]"
+                      dataType="r8"
+                      name="BKZ" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].ExternalColumns[Bundesland]"
+                      dataType="wstr"
+                      length="255"
+                      name="Bundesland" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].ExternalColumns[Valid From]"
+                      dataType="date"
+                      name="Valid From" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output].ExternalColumns[Valid To]"
+                      dataType="date"
+                      name="Valid To" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Error Output].Columns[RWK]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Error Output].Columns[RWK]"
+                      name="RWK" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Error Output].Columns[Regionalwahlkreis]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Error Output].Columns[Regionalwahlkreis]"
+                      name="Regionalwahlkreis" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Error Output].Columns[BKZ]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Error Output].Columns[BKZ]"
+                      name="BKZ" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Error Output].Columns[Bundesland]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Error Output].Columns[Bundesland]"
+                      name="Bundesland" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Error Output].Columns[Valid From]"
+                      dataType="date"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Error Output].Columns[Valid From]"
+                      name="Valid From" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Error Output].Columns[Valid To]"
+                      dataType="date"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Error Output].Columns[Valid To]"
+                      name="Valid To" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 2\Source 7 - Wahlen$"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Source 7 - Wahlen$"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Wahlen$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 2\Source 7 - Wahlen$.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionExcel]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionExcel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Output].Columns[Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Output].ExternalColumns[Code]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Output].Columns[Code]"
+                      name="Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Output].ExternalColumns[Name]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Output].Columns[Due Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Output].ExternalColumns[Due Date]"
+                      lineageId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Output].Columns[Due Date]"
+                      name="Due Date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Output].ExternalColumns[Code]"
+                      dataType="wstr"
+                      length="255"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Output].ExternalColumns[Due Date]"
+                      dataType="date"
+                      name="Due Date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Error Output].Columns[Code]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Error Output].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Error Output].Columns[Due Date]"
+                      dataType="date"
+                      lineageId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Error Output].Columns[Due Date]"
+                      name="Due Date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 2.Paths[Excel Source Output]"
+              endId="Package\Data Flow Task 2\Destination 5 - Parties.Inputs[Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task 2\Source 5 - Parteien$.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Data Flow Task 2.Paths[Excel Source Output1]"
+              endId="Package\Data Flow Task 2\Destination 6 - Constituencies.Inputs[Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task 2\Source 6 - RWK_neu$.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Data Flow Task 2.Paths[Excel Source Output2]"
+              endId="Package\Data Flow Task 2\Destination 7 - Elections.Inputs[Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task 2\Source 7 - Wahlen$.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{5B7AA11F-022A-40AC-8A61-01706F2D3064}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{388FC640-28F0-4FBD-B7DA-CFA904176A34}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[Districts] (&#xA;[Name] nvarchar(5) NOT NULL,&#xA;[Code] float NOT NULL,&#xA;[Regional_Constituency] nvarchar(2) NOT NULL,&#xA;[Valid From] datetime NOT NULL,&#xA;[Valid To] datetime&#xA;)&#xA;GO&#xA;CREATE TABLE [dbo].[Provinces] (&#xA;[Code] float NOT NULL,&#xA;[Name] nvarchar(50) NOT NULL&#xA;)&#xA;GO&#xA;CREATE TABLE [dbo].[Election_Parties] (&#xA;[Election_Code] nvarchar(10) NOT NULL,&#xA;[Party_Code] nvarchar(10) NOT NULL&#xA;)&#xA;GO&#xA;CREATE TABLE [dbo].[Communities] (&#xA;[Name] nvarchar(50) NOT NULL,&#xA;[Post_Code] float NOT NULL,&#xA;[District_Code] float NOT NULL,&#xA;[Valid From] datetime NOT NULL,&#xA;[Valid To] date&#xA;)&#xA;GO&#xA;CREATE TABLE [dbo].[Vote_Data] (&#xA;[Election_Code] nvarchar(10) NOT NULL,&#xA;[Community_Index] nvarchar(6) NOT NULL,&#xA;[Party_Code] nvarchar(10) NOT NULL,&#xA;[Votes] float NOT NULL&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{878E95C7-46E8-4DD2-82E1-0B9AC0BA3892}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{388FC640-28F0-4FBD-B7DA-CFA904176A34}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[Parties] (&#xA;[Code] nvarchar(10) NOT NULL,&#xA;[Full Name] nvarchar(150) NOT NULL,&#xA;[Color] nvarchar(6),&#xA;[Valid From] datetime NOT NULL,&#xA;[Valid To] datetime&#xA;)&#xA;GO&#xA;CREATE TABLE [dbo].[Constituencies] (&#xA;[RWK] nvarchar(2),&#xA;[Regionalwahlkreis] nvarchar(50),&#xA;[Province_Code] float,&#xA;[Valid From] datetime,&#xA;[Valid To] datetime&#xA;)&#xA;GO&#xA;CREATE TABLE [dbo].[Elections] (&#xA;[Code] nvarchar(10) NOT NULL,&#xA;[Name] nvarchar(80) NOT NULL,&#xA;[Due Date] datetime NOT NULL&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{0D9F7DD6-1ABE-41E2-BCDB-FD0679FC1C2C\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{0D9F7DD6-1ABE-41E2-BCDB-FD0679FC1C2C}"
+      DTS:From="Package\Data Flow Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{0D9F7DD6-1ABE-41E2-BCDB-FD0679FC1C2C}"
+      DTS:To="Package\Preparation SQL Task 2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{D14BE06F-AFD9-40EB-8BF2-23DA32EA98ED\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{D14BE06F-AFD9-40EB-8BF2-23DA32EA98ED}"
+      DTS:From="Package\Preparation SQL Task 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{D14BE06F-AFD9-40EB-8BF2-23DA32EA98ED}"
+      DTS:To="Package\Data Flow Task 2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{D2AE64B5-99C5-4507-9D02-2076B3700926\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{D2AE64B5-99C5-4507-9D02-2076B3700926}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{D2AE64B5-99C5-4507-9D02-2076B3700926}"
+      DTS:To="Package\Data Flow Task 1" />
+  </DTS:PrecedenceConstraints>
+</DTS:Executable>
