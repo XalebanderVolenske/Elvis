@@ -8,7 +8,6 @@ namespace Elvis.Models
 
     public partial class Communities
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Communities()
         {
             Electorial_Register = new HashSet<Electorial_Register>();
@@ -37,7 +36,6 @@ namespace Elvis.Models
 
         public virtual Districts Districts { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Electorial_Register> Electorial_Register { get; set; }
 
         public virtual Vote_Data Vote_Data { get; set; }

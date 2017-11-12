@@ -8,7 +8,6 @@ namespace Elvis.Models
 
     public partial class Election_Parties
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Election_Parties()
         {
             Vote_Data = new HashSet<Vote_Data>();
@@ -28,7 +27,6 @@ namespace Elvis.Models
 
         public virtual Parties Parties { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Vote_Data> Vote_Data { get; set; }
     }
 }

@@ -8,7 +8,6 @@ namespace Elvis.Models
 
     public partial class Constituencies
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Constituencies()
         {
             Districts = new HashSet<Districts>();
@@ -32,7 +31,6 @@ namespace Elvis.Models
 
         public virtual Provinces Provinces { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Districts> Districts { get; set; }
     }
 }

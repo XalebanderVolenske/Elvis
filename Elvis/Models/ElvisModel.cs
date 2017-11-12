@@ -10,6 +10,7 @@ namespace Elvis.Models
         public ElvisModel()
             : base("name=ElvisModel")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         public virtual DbSet<Communities> Communities { get; set; }

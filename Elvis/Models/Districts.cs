@@ -8,7 +8,6 @@ namespace Elvis.Models
 
     public partial class Districts
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Districts()
         {
             Communities = new HashSet<Communities>();
@@ -31,7 +30,6 @@ namespace Elvis.Models
         [Column("Valid To", TypeName = "date")]
         public DateTime? Valid_To { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Communities> Communities { get; set; }
 
         public virtual Constituencies Constituencies { get; set; }
