@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Elvis.Core.RepositoryInterfaces
 {
-    interface IDistrictRepository : IRepository<Districts>
+    interface IDistrictsRepository : IRepository<Districts>
     {
         IEnumerable<Districts> GetDistricts();
         IEnumerable<Districts> GetDistrictsByCode(int code);

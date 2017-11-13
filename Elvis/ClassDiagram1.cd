@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Elvis.BundleConfig" Collapsed="true">
+    <Position X="21.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\BundleConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elvis.FilterConfig" Collapsed="true">
+    <Position X="28.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\FilterConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elvis.RouteConfig" Collapsed="true">
+    <Position X="23.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elvis.MvcApplication" Collapsed="true">
+    <Position X="25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elvis.Controllers.HomeController" Collapsed="true">
+    <Position X="21.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elvis.Core.Repositories.CommunitiesRepository" Collapsed="true">
+    <Position X="13" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAgACAAAA=</HashCode>
+      <FileName>Core\Repositories\CommunitiesRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Elvis.Core.Repositories.ConstituenciesRepository" Collapsed="true">
+    <Position X="0.5" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAAAAAA=</HashCode>
+      <FileName>Core\Repositories\ConstituenciesRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Elvis.Core.Repositories.DistrictsRepository" Collapsed="true">
+    <Position X="3.25" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAQAAAAgAAAAAA=</HashCode>
+      <FileName>Core\Repositories\DistrictsRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Elvis.Core.Repositories.ElectionsRepository" Collapsed="true">
+    <Position X="5.75" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAACAAAgAAAAAA=</HashCode>
+      <FileName>Core\Repositories\ElectionsRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Elvis.Core.Repositories.PartiesRepository" Collapsed="true">
+    <Position X="8.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAQgAAAAAA=</HashCode>
+      <FileName>Core\Repositories\PartiesRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Elvis.Core.Repositories.ProvincesRepository" Collapsed="true">
+    <Position X="10.5" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAIAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Core\Repositories\ProvincesRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Elvis.Core.Repositories.Repository&lt;TEntity&gt;" Collapsed="true">
+    <Position X="7" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAABAAAAAAAAAAAAIAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Core\Repositories\Repository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Elvis.Migrations.InitialModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201711122017381_InitialModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Elvis.Migrations.Configuration" Collapsed="true">
+    <Position X="25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Migrations\Configuration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elvis.Models.Communities" Collapsed="true">
+    <Position X="23.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAQAAAAAAAAAgAACAABQAAACAAAAQAAAgAAAAAAA=</HashCode>
+      <FileName>Models\Communities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elvis.Models.Constituencies" Collapsed="true">
+    <Position X="26.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAEAAAAAAAAAAAgAAAAAACEAAAAAAAgAgAAAAA=</HashCode>
+      <FileName>Models\Constituencies.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elvis.Models.Districts" Collapsed="true">
+    <Position X="28.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAgAAQAAACAAAAAAAAgAACAAAg=</HashCode>
+      <FileName>Models\Districts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elvis.Models.Election_Parties" Collapsed="true">
+    <Position X="21.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAABAAAAAAACAAACAAgAAAAAA=</HashCode>
+      <FileName>Models\Election_Parties.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elvis.Models.Elections" Collapsed="true">
+    <Position X="23.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAAAAAAAAAAAAAgAAQAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Elections.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elvis.Models.Electorial_Register" Collapsed="true">
+    <Position X="25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAQAAACAQAAQAAAAAAAA=</HashCode>
+      <FileName>Models\Electorial_Register.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elvis.Models.ElvisModel" Collapsed="true">
+    <Position X="26.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAQAAAAACAAAAAAAAABAAEEAAACAAACAAAgCAAAA=</HashCode>
+      <FileName>Models\ElvisModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elvis.Models.Parties" Collapsed="true">
+    <Position X="26.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAgAAAAAEAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Models\Parties.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elvis.Models.Provinces" Collapsed="true">
+    <Position X="28.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAQAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Models\Provinces.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elvis.Models.Vote_Data" Collapsed="true">
+    <Position X="26.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACBAAAAAAAACAAAAAAAAAAAAAEAAAAAQAAAAgAAAAAA=</HashCode>
+      <FileName>Models\Vote_Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elvis.Properties.Settings" Collapsed="true">
+    <Position X="25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elvis.unittest.ProvincesTests" Collapsed="true">
+    <Position X="21.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>unittest\ProvincesTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Elvis.Core.RepositoryInterfaces.ICommunitiesRepository" Collapsed="true">
+    <Position X="0.5" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAACAAAA=</HashCode>
+      <FileName>Core\RepositoryInterfaces\ICommunitiesRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Elvis.Core.RepositoryInterfaces.IConstituenciesRepository" Collapsed="true">
+    <Position X="3.25" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Core\RepositoryInterfaces\IConstituenciesRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Elvis.Core.RepositoryInterfaces.IDistrictsRepository" Collapsed="true">
+    <Position X="6" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Core\RepositoryInterfaces\IDistrictsRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Elvis.Core.RepositoryInterfaces.IElectionsRepository" Collapsed="true">
+    <Position X="8.5" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Core\RepositoryInterfaces\IElectionsRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Elvis.Core.RepositoryInterfaces.IPartiesRepository" Collapsed="true">
+    <Position X="11" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Core\RepositoryInterfaces\IPartiesRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Elvis.Core.RepositoryInterfaces.IProvincesRepository" Collapsed="true">
+    <Position X="13.25" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\RepositoryInterfaces\IProvincesRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Elvis.Core.RepositoryInterfaces.IRepository&lt;TEntity&gt;" Collapsed="true">
+    <Position X="7" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAIAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Core\RepositoryInterfaces\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

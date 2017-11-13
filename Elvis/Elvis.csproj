@@ -159,7 +159,7 @@
     <Compile Include="Core\Repositories\ProvincesRepository.cs" />
     <Compile Include="Core\RepositoryInterfaces\ICommunitiesRepository.cs" />
     <Compile Include="Core\RepositoryInterfaces\IConstituenciesRepository.cs" />
-    <Compile Include="Core\RepositoryInterfaces\IDistrictRepository.cs" />
+    <Compile Include="Core\RepositoryInterfaces\IDistrictsRepository.cs" />
     <Compile Include="Core\RepositoryInterfaces\IElectionsRepository.cs" />
     <Compile Include="Core\RepositoryInterfaces\IPartiesRepository.cs" />
     <Compile Include="Core\RepositoryInterfaces\IProvincesRepository.cs" />
@@ -189,6 +189,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="unittest\ProvincesTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -202,6 +203,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

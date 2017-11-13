@@ -16,15 +16,14 @@ namespace Elvis.Core.Repositories
 
         public ElvisModel ElvisContext { get => Context as ElvisModel; }
 
-        public IEnumerable<Communities> GetConstituencies()
+        public IEnumerable<Communities> GetCommunities()
         {
             return ElvisContext.Communities.ToList();
         }
 
-        public IEnumerable<Communities> GetConstituenciesByCode(int code)
+        public IEnumerable<Communities> GetCommunitiesByCode(int code)
         {
             yield return ElvisContext.Communities.Find(code);
         }
-    {
     }
 }
